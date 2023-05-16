@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiosFinalSchool", "RiosFinalSchool\RiosFinalSchool.csproj", "{589BAD67-D0DB-4B19-8AF0-AC1F2831D6AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiosFinalSchoolTests", "RiosFinalSchoolTests\RiosFinalSchoolTests.csproj", "{FE61A2DA-951B-4E1F-9AC9-887290AF28D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{589BAD67-D0DB-4B19-8AF0-AC1F2831D6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{589BAD67-D0DB-4B19-8AF0-AC1F2831D6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{589BAD67-D0DB-4B19-8AF0-AC1F2831D6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE61A2DA-951B-4E1F-9AC9-887290AF28D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE61A2DA-951B-4E1F-9AC9-887290AF28D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE61A2DA-951B-4E1F-9AC9-887290AF28D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE61A2DA-951B-4E1F-9AC9-887290AF28D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,12 +17,16 @@ namespace RiosFinalSchool.Controllers
     {
         private readonly SchoolContext _context;
 
-        public StudentsController(SchoolContext context)
+        private readonly JwtAuthManager jwtAuthManager;
+
+        public StudentsController(JwtAuthManager jwtAuthManager, SchoolContext context)
         {
+            this.jwtAuthManager = jwtAuthManager;
             _context = context;
         }
 
         // GET: api/Students
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
         {
@@ -83,6 +88,7 @@ namespace RiosFinalSchool.Controllers
 
         // POST: api/Students
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
@@ -134,5 +140,23 @@ namespace RiosFinalSchool.Controllers
         {
             return (_context.Students?.Any(e => e.StudentId == id)).GetValueOrDefault();
         }
+
+        [AllowAnonymous]
+        [HttpPost("Authorize")]
+        public IActionResult AuthUser([FromBody] User usr)
+        {
+            var token = jwtAuthManager.Authenticate(usr.username, usr.password);
+
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+            return Ok(token);
+        }
+    }
+    public class User
+    {
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }
